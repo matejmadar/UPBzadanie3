@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome, {{ username }}!</h1>
+        <p>You are successfully logged in.</p>
+        <form method="POST" action="{{ url_for('logout') }}">
+            <input type="submit" value="Logout">
+        </form>
+    </div>
+</body>
+</html>

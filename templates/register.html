@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Register</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <p>{{ form.username.label }} {{ form.username(class_="form-control") }}</p>
+            <p>{{ form.password.label }} {{ form.password(class_="form-control") }}</p>
+            <p>{{ form.confirm_password.label }} {{ form.confirm_password(class_="form-control") }}</p>
+            <p>{{ form.submit(class_="btn btn-primary") }}</p>
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+        
+        {% for message in get_flashed_messages() %}
+            <div class="flash">{{ message }}</div>
+        {% endfor %}
+    </div>
+</body>
+</html>
